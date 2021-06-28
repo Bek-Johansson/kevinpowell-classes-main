@@ -1,0 +1,141 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  font-size: 1.3125rem;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.btn {
+  background-color: #38cfd9;
+  color: #23424a;
+  font-weight: bold;
+  border-radius: 31.5px;
+  border: none;
+  padding: 0.75em 1.23em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus {
+  opacity: 0.7;
+}
+
+.accent-text {
+  color: purple;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.nav {
+  background-color: #136c72;
+  padding: 50px;
+ 
+}
+
+.nav__list {
+  display: flex;
+  list-style-type: none;
+  width: 50%;
+  padding: 1em;
+  justify-content: space-around;
+}
+
+.nav__link, .nav__link--button {
+  text-transform: uppercase;
+}
+.nav__link--button {
+  border: 1px solid #fff;
+  background-color: #fff;
+  color: #136c72;
+  border-radius: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5em .8em;
+}
+
+.hero {
+  background-color: #23424a;
+  color: white;
+  padding: 100px 0;
+  display: flex;
+}
+
+.hero__text {
+  width: 62%;
+  font-weight: 200;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+.hero__img {
+  width: 32%;
+  align-self: flex-start;
+  display: flex;
+  margin: 50px 150px 0 0;
+}
+
+.hero p {
+  margin-bottom: 3em;
+}
+.row {
+  /* !display: flex => flex container */
+  /* display: flex; */
+  /* !default => row */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  /* gap: 100px; */
+}
+
+/* !Flex items by default want to be as small as possible */
+
+.col {
+  /* *these are flex items now */
+  /* #If you ever want the column to be equal even if one has smaller content do the following*/
+  width: 100%; /* !they will stay with in the % you set, even if it's 1% -100%*/
+  margin: 0 auto;
+}
+
+.col > p {
+  font-size: 0.8em;
+}
+
+.main {
+  display: flex;
+  margin-top: 1.5em;
+  gap: 30px;
+}
+
+.aside__container {
+  display: flex;
+  flex-direction: column;
+  background-color: #136c72;
+  color: #fff;
+  margin: 1.5em 0;
+  font-weight: 200;
+  text-align: center;
+  width: 80%;
+  padding: 0px 25px;
+  height: ;
+}
