@@ -1,14 +1,24 @@
+/* Challenge
+
+   Make the navigation layout work
+   on both mobile and large screens.
+
+   Mobile-first, so mobile styles first,
+   then add the large screen styles
+   inside the existing media query
+
+*/
+
 *,
-*::after,
-*::before {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
   margin: 0;
-  font-size: 1.3125rem;
-  line-height: 1.7;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
 }
 
 img {
@@ -17,137 +27,171 @@ img {
 
 h1 {
   font-size: 3rem;
+  margin-top: 0;
+}
+
+.section-title {
+  color: #87629a;
 }
 
 .btn {
-  background-color: #38cfd9;
-  color: #23424a;
-  font-weight: bold;
-  border-radius: 31.5px;
-  border: none;
-  padding: 0.75em 1.23em;
-  text-transform: uppercase;
+  display: inline-block;
   text-decoration: none;
+  text-transform: uppercase;
+  color: #23424a;
+  font-weight: 900;
+  background-color: #38cfd9;
+  padding: 0.75em 2em;
+  border-radius: 100px;
 }
 
 .btn:hover,
 .btn:focus {
-  opacity: 0.7;
-}
-
-.accent-text {
-  color: purple;
+  opacity: 0.75;
 }
 
 .container {
   width: 80%;
-  margin: 0 auto;
   max-width: 1100px;
+  margin: 0 auto;
+  /* added for nav-toggle positioning */
+  position: relative;
 }
 
-.flex {
-  display: flex;
-  justify-content:space-between;
+header {
+  background: #136c72;
+  padding: 1em 0;
+  text-align: center;
 }
-.logo {
-  display: flex;
-  justify-content:flex-end;
-  align-content:flex-end;
-}
+
 .nav {
-  background-color: #136c72;
-  padding: 50px;
+  width: 100%;
 }
 
-.nav__list {
-  margin: 0;
-  display: flex;
-  list-style-type: none;
-  padding: 1em;
-  justify-content: flex-end;
-  gap: 0.8em;
-  align-content: flex-end;
-}
-
-.nav__link,
-.nav__link--button {
-  text-transform: uppercase;
-}
-.nav__link--button {
-  border: none;
-  background-color: #fff;
-  color: #136c72;
-  border-radius: 50px;
-  font-weight: 600;
-}
-
-a {
-  text-decoration: none;
+.nav-toggle {
+  cursor: pointer;
+  border: 0;
+  width: 3em;
+  height: 3em;
+  padding: 0em;
+  border-radius: 50%;
+  background: #072a2d;
   color: white;
-  padding: 0.5em 0.8em;
+  transition: opacity 250ms ease;
+
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+  opacity: 0.75;
+}
+
+.hamburger {
+  width: 50%;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  background: white;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  width: 100%;
+}
+
+.hamburger::before {
+  transform: translateY(-6px);
+}
+
+.hamburger::after {
+  transform: translateY(3px);
+}
+
+/* made changes here from video
+   to make it more accessible.
+   
+   Works the same :) */
+.nav {
+  visibility: hidden;
+  height: 0;
+  position: absolute;
+}
+
+.nav--visible {
+  visibility: visible;
+  height: auto;
+  position: relative;
+}
+
+.logo {
+  height: 30px;
 }
 
 .hero {
-  background-color: #23424a;
-  color: white;
   padding: 100px 0;
-  display: flex;
-}
-
-.hero__text {
-  width: 62%;
-  font-weight: 200;
-  line-height: 1.6;
-  margin: 0 auto;
+  background-color: #23424a;
+  color: #fff;
 }
 
 .hero__img {
-  width: 32%;
-  align-self: flex-start;
-  display: flex;
-  margin: 50px 150px 0 0;
+  margin-top: 2em;
 }
 
 .hero p {
   margin-bottom: 3em;
 }
-.row {
-  /* !display: flex => flex container */
-  /* display: flex; */
-  /* !default => row */
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
-  /* gap: 100px; */
-}
-
-/* !Flex items by default want to be as small as possible */
-
-.col {
-  /* *these are flex items now */
-  /* #If you ever want the column to be equal even if one has smaller content do the following*/
-  width: 100%; /* !they will stay with in the % you set, even if it's 1% -100%*/
-  margin: 0 auto;
-}
-
-.col > p {
-  font-size: 0.8em;
-}
 
 .main {
-  display: flex;
-  margin-top: 1.5em;
-  gap: 30px;
+  margin-top: 3em;
 }
 
-.aside__container {
-  display: flex;
-  flex-direction: column;
-  background-color: #136c72;
-  color: #fff;
-  margin: 1.5em 0;
-  font-weight: 200;
+.sidebar {
+  padding: 1em;
   text-align: center;
-  width: 80%;
-  padding: 0px 25px;
-  height: ;
+  color: #fff;
+  background-color: #136c72;
+}
+
+@media (min-width: 800px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav {
+    visibility: visible;
+    display: flex;
+    height: auto;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hero__text {
+    width: 62%;
+  }
+
+  .hero__img {
+    width: 32%;
+    align-self: flex-start;
+    margin: 0;
+  }
+
+  .primary-content {
+    width: 62%;
+  }
+
+  .sidebar {
+    width: 32%;
+  }
 }
